@@ -14,10 +14,21 @@ while True:
     henchman_choice = input("Enter your henchman's name: ").strip().title()
 
     if henchman_choice in henchmen:
-        ally = henchmen[henchman_choice]
-        print(henchman_choice, ally)
-        break
+        ally_stats = henchmen[henchman_choice]
+        print(henchman_choice, ally_stats)
 
+        # Assigned values got from dictionary
+        health = ally_stats.get("health")
+        strength = ally_stats.get("strength")
+        speed = ally_stats.get("speed")
+
+        # To see if it works
+        print(f"Health: {health}")
+        print(f"Strength: {strength}")
+        print(f"Speed: {speed}")
+
+        break
+    
     else:
         ("Invalid choice, please pick only from the choices.")
 # Do a turn based battle that users can have fun with
