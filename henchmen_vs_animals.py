@@ -8,6 +8,14 @@ henchmen = {
     # Add more henchmens in the future
 }
 
+movesets = {
+    {"move": "bash", "damage": 20},
+    {"move": "slash", "damage": 30},
+    {"move": "screech", "damage": 25},
+    {"move": "bite", "damage": 25},
+    {"move": "punch", "damage": 10}
+}
+
 # Asks user to pick which henchmen to pick
 while True:
     print("Pick your henchman:", ", " .join(henchmen.keys()))
