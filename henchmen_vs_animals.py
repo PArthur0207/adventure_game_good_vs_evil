@@ -4,17 +4,19 @@ henchmen = {
     "Ogre": {"health": 120, "strength": 150, "speed": 30}, # Special talent: Has a chance to reduce the opponent's damage significantly
     "Goblin": {"health": 80, "strength": 80, "speed": 140}, # Special talent: Can multiply (Limit this)
     "Banshee": {"health": 100, "strength": 80, "speed": 120}, # Special talent: Is hard to hit 
-    "Werewolve": {"health": 100, "strength": 100, "speed": 100}, # Special talent: Has a chance to increase all stats when full moon
+    "Werewolf": {"health": 100, "strength": 100, "speed": 100}, # Special talent: Has a chance to increase all stats when full moon
     # Add more henchmens in the future
 }
 
 movesets = {
-    {"move": "bash", "damage": 20},
-    {"move": "slash", "damage": 30},
-    {"move": "screech", "damage": 25},
-    {"move": "bite", "damage": 25},
-    {"move": "punch", "damage": 10}
+    "bash": 20,
+    "slash": 30,
+    "screech": 25,
+    "damage": 25,
+    "punch": 10
 }
+
+dummy_health = 1000
 
 # Asks user to pick which henchmen to pick
 while True:
@@ -38,7 +40,22 @@ while True:
         break
     
     else:
-        ("Invalid choice, please pick only from the choices.")
+        print("Invalid choice, please pick only from the choices.")
+
 # Do a turn based battle that users can have fun with
+
+while dummy_health > 0:
+    print("Moveset is", ", " .join(movesets.keys()))
+    action = input("It is your turn, what would you like to do? \n").lower().strip()
+    if action in movesets:
+        damage = movesets[action]
+        print(f"You used the move {action}! It dealt {damage} damage")
+        dummy_health -= damage
+        print(f"The opponent's health is down to {dummy_health}")
+    else:
+        print("Invalid move! Please only pick from the given movesets.")
+
+print("Congratulations! You beat the dummy.")
+
 # Possibly add moves by user that is not among the movesets of the henchmen (do this later)
 # Do the same for animal allies (for good)
